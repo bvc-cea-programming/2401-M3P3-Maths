@@ -22,7 +22,18 @@ public class MeshDeformation : MonoBehaviour
     {
         // Add your code here
 
-        
+        // Loop over each vertex in the mesh to modify its position
+        for (int i = 0; i < _vertices.Length; i++)
+        {
+            // Store the original position of the current vertex
+            Vector3 originalPos = _vertices[i];
+
+            // Calculate the wave effect using a sine function
+            float wave = amplitude * 0.05f * Mathf.Sin((Time.time * speed) - (originalPos.x * 5f));  // Smoother but gentler wave
+
+            // Adjust the Y position for the vertex based on the calculated wave effect
+            _vertices[i] = new Vector3(originalPos.x, originalPos.y + wave, originalPos.z);
+        }
 
         // do not add code below 
         _mesh.vertices = _vertices;
@@ -31,8 +42,8 @@ public class MeshDeformation : MonoBehaviour
 
     private void Update()
     {
-        if(!meshFilter) return;
-        
+        if (!meshFilter) return;
+
         Animate();
     }
 }
