@@ -11,8 +11,10 @@ public class CircularMotion : MonoBehaviour
     public float speed = 5f;
     private void Animate()
     {
-        //Add your code here
-        
+        float newXPos = xAmplitude * Mathf.Sin(Time.time * speed);
+        float newYPos = yAmplitude * Mathf.Cos(Time.time * speed);
+
+        targetObject.localPosition = new Vector3(newXPos, newYPos, targetObject.localPosition.z);
     }
 
     private void Update()
