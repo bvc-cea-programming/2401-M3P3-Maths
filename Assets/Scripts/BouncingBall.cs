@@ -11,6 +11,8 @@ public class BouncingBall : MonoBehaviour
     private void Animate()
     {
         //Add your code here
+        float pos = amplitude * Mathf.Abs(Mathf.Sin(frequency * Time.time));
+        targetObject.localPosition = new Vector3(0, pos, 0);
         
     }
 
