@@ -21,7 +21,11 @@ public class MeshDeformation : MonoBehaviour
     private void Animate()
     {
         // Add your code here
-
+        for (int i = 0; i < _vertices.Length; i++)
+        {
+            float positionY = amplitude * Mathf.Sin(Time.time * speed + _vertices[i].x);
+            _vertices[i] = new Vector3(_vertices[i].x, positionY, _vertices[i].z);
+        }
         
 
         // do not add code below 
