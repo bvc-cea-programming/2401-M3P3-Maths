@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.Serialization;
 
 public class ParametricShapes : MonoBehaviour
@@ -11,6 +12,10 @@ public class ParametricShapes : MonoBehaviour
     private void Animate()
     {
         //Add your code here
+        float time = Time.time;
+        float posX = amplitude * Mathf.Cos(time * speed) * time;
+        float posY = amplitude * Mathf.Sin(time * speed) * time;
+        targetObject.localPosition = new Vector3(posX, posY, targetObject.localPosition.z);
         
     }
 
