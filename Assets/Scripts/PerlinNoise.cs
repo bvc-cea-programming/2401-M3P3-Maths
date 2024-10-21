@@ -10,7 +10,7 @@ public class PerlinNoise : MonoBehaviour
     public float intensityMultiplier = 2f;
     private void Animate()
     {
-        //Add your code here
+        //Add your code here/
         float noise = Mathf.PerlinNoise(intensityMultiplier, Time.time)*speed;
         targetLight.intensity = noise;
     }
