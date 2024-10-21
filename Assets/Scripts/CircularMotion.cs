@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 
 public class CircularMotion : MonoBehaviour
 {
@@ -12,7 +14,7 @@ public class CircularMotion : MonoBehaviour
     private void Animate()
     {
         //Add your code here
-        
+        targetObject.localPosition = new Vector2(xAmplitude * Mathf.Sin(Time.time * speed), yAmplitude * Mathf.Cos(Time.time * speed));
     }
 
     private void Update()

@@ -11,7 +11,7 @@ public class ParametricShapes : MonoBehaviour
     private void Animate()
     {
         //Add your code here
-        
+        targetObject.localPosition = new Vector2(amplitude * Mathf.Sin(Time.time * speed)*Time.time, amplitude * Mathf.Cos(Time.time * speed)*Time.time);
     }
 
     private void Update()
