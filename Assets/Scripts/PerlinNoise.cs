@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,7 +12,9 @@ public class PerlinNoise : MonoBehaviour
     private void Animate()
     {
         //Add your code here
-        
+        float perlinX = Mathf.Sin(Time.time * speed);
+        float perlinY = Mathf.Cos(Time.time * speed);
+        targetLight.intensity = intensityMultiplier * Mathf.PerlinNoise(perlinX,perlinY);
     }
 
     private void Update()
