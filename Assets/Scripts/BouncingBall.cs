@@ -12,6 +12,14 @@ public class BouncingBall : MonoBehaviour
     {
         //Add your code here
         
+        // Calculate the time using frequency to control the speed of the bounce
+        float time = Time.time * frequency;
+
+        // Calculate the Y position using Mathf.Abs to simulate a bouncing effect
+        float y = Mathf.Abs(Mathf.Sin(time) * amplitude);
+
+        // Update the target obect's Y position for the bouncing effect
+        targetObject.localPosition = new Vector3(targetObject.localPosition.x, y, targetObject.localPosition.z);
     }
 
     private void Update()
