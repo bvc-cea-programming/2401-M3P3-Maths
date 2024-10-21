@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 public class BouncingBall : MonoBehaviour
@@ -11,7 +12,10 @@ public class BouncingBall : MonoBehaviour
     private void Animate()
     {
         //Add your code here
-        
+        float x = 0;
+        float y = Mathf.Abs(amplitude * Mathf.Cos(Time.time * frequency));
+        float z = transform.localPosition.z;
+        targetObject.localPosition = new Vector3(x,y,z);
     }
 
     private void Update()
