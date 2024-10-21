@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class MeshDeformation : MonoBehaviour
 {
@@ -21,8 +22,15 @@ public class MeshDeformation : MonoBehaviour
     private void Animate()
     {
         // Add your code here
+        for(int i = 0;  i < _vertices.Length; i++)
+        {
+            float posY = amplitude * Mathf.Sin(speed * Time.time + _vertices[i].x);
+
+            _vertices[i] = new Vector3(_vertices[i].x, posY, _vertices[i].z);
+        }
 
         
+
 
         // do not add code below 
         _mesh.vertices = _vertices;
