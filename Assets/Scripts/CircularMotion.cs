@@ -10,7 +10,7 @@ public class CircularMotion : MonoBehaviour
 
     public float xAmplitude = 2f;
     public float yAmplitude = 2f;
-    public float speed = 1f;
+    public float speed = 5f;
     private void Animate()
     {
         float x = xAmplitude * Mathf.Sin(Time.time * speed);
