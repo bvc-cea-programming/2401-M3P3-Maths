@@ -9,7 +9,7 @@ public class PerlinNoise : MonoBehaviour
 
     public float speed = 3f;
     public float intensityMultiplier = 2f;
-    public Light pointLight;
+    
 
     private float timeOffset;
 
@@ -27,7 +27,7 @@ public class PerlinNoise : MonoBehaviour
 
         // Generate a Perlin noise value and scale it
         float noiseValue = Mathf.PerlinNoise(x, 0f);
-        pointLight.intensity = noiseValue * intensityMultiplier; // Set light intensity
+       
 
     }
 

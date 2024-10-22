@@ -5,30 +5,22 @@ using UnityEngine;
 public class BouncingBall : MonoBehaviour
 {
     public Transform targetObject;
-    
-    public float xAmplitude = 3f;
+
+    public float amplitude = 3f;
     public float frequency = 2f;
-    private float yTime;
-    private float speed = 1f;
     private void Animate()
     {
-        //Add your code here\
-        yTime += Time.deltaTime * speed;
-
-        // Calculate the new position
-        float x = xAmplitude * Mathf.Sin(yTime); // Horizontal motion
-        float y = Mathf.Abs(xAmplitude * Mathf.Sin(yTime)); // Vertical bouncing effect
-
-        // Set the new position
-        transform.localPosition = new Vector3(x, y, transform.localPosition.z);
-        
-
+        //Add your code here
+        float newY = Mathf.Abs(Mathf.Sin(Time.time * frequency) * amplitude);
+        Vector3 newPosition = targetObject.localPosition;
+        newPosition.y = newY;
+        targetObject.localPosition = newPosition;
     }
 
     private void Update()
     {
-        if(!targetObject) return;
-        
+        if (!targetObject) return;
+
         Animate();
     }
 }

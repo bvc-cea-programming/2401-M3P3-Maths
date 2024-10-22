@@ -5,28 +5,21 @@ using UnityEngine;
 public class CircularMotion : MonoBehaviour
 {
     public Transform targetObject;
-    
+
     public float xAmplitude = 2f;
-    public float yTime = 2f;
+    public float yAmplitude = 2f;
     public float speed = 5f;
     private void Animate()
     {
-        //Add your code here
-        yTime += Time.deltaTime * speed;
-
-        // Calculate the new position
-        float x = xAmplitude * Mathf.Sin(yTime);
-        float y = xAmplitude * Mathf.Cos(yTime);
-
-        // Set the new position
-        transform.localPosition = new Vector3(x, y, transform.localPosition.z);
-
+        float posX = xAmplitude * Mathf.Sin(Time.time * speed);
+        float posY = yAmplitude * Mathf.Cos(Time.time * speed);
+        targetObject.localPosition = new Vector3(posX, posY, 0);
     }
 
     private void Update()
     {
-        if(!targetObject) return;
-        
+        if (!targetObject) return;
+
         Animate();
     }
 }
