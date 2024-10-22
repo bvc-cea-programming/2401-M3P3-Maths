@@ -20,6 +20,7 @@ public class CircularMotion : MonoBehaviour
 
         // Set the new position
         transform.localPosition = new Vector3(x, y, transform.localPosition.z);
+
     }
 
     private void Update()
